@@ -1,0 +1,79 @@
+/* CSS file for Burger Heaven website*/
+
+
+body {
+    font-family: arial;
+	/*font-family: "Droid Serif", sans-serif;*/
+	font-size: 12pt;
+	
+	background-color: white;
+	color: black;
+	
+}
+
+.ing{
+	font-weight: bold;
+}
+
+#burger{
+	background-color: black;
+	color: white;
+	border: 2px dotted #ffffff;
+	padding: 10px; /*to seperate the text from the border*/
+}
+
+#orderinfo{
+	border: 2px dotted #000000;
+	padding: 10px; /*to seperate the text from the border*/
+}
+button:hover {
+    background-color: coral;
+	cursor: pointer;
+}
+
+button {
+	margin-top:20px;
+}
+
+table{
+	width: 80%;
+	margin-left:5%; 
+    margin-right:5%;
+}
+
+section{
+	margin-left:10px;
+	/*border: 2px dotted #000000;*/ /* the borders are set in each secion separately*/
+}
+
+#head_img{
+	opacity: 0.5;
+	width:100%;
+	height:auto;
+}
+
+#head_line{
+	position:absolute;
+	padding: 40px 400px 400px;
+	font-size: 24pt;
+}
+
+#header{
+	height:100pt;
+	overflow:hidden;
+}
+
+/*style for burger types grid*/
+.burger_types{
+	display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 300px 300px 300px;
+}
+
+.type{
+	padding: 30px;
+}
+/*task 3.10 seperate the text from border*/
+/*#orderinfo{
+	padding: 10px;
+}*/

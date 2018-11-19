@@ -1,9 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DELI-VERY</title>
+        <title>Burger Heaven Online</title>
+        <meta charset="utf-8"/>
+		<!-- <link rel="stylesheet" href="css/reset.css"> -->
+		<link rel="stylesheet" href="css/style.css">
+		<!--js files-->
+		<script type="text/javascript" src="js/menu.js"></script>
+		
+		<!--
+		<script src="js/js_script.js" defer></script>
+		-->
+		
+		<script src="https://vuejs.org/js/vue.js" defer></script> <!--needed by the vue, it is extenal library-->
+		
+		<script src="js/vue_script.js" defer></script>
+		
     </head>
     <body>
-        <h1>Hello World!!!</h1>
+		<main>
+			<section id="header">
+				<h1 id="head_line">Welcome to Burger Heaven</h1>
+				<img id="head_img" src="https://assets.grilld.com.au/images/_crop480/KIRRAWEE_WEBSITE_HERO_IMAGE_480x480px.jpg?mtime=20181031114825">
+			</section>
+			
+			<section id="burger">
+				<h2>Select Burger</h2>
+					<p>This is where you execute burger selection</p>
+				<!-- <table>
+					<tbody>
+						<tr>
+							<td align="justify"> <h3>The Fire Burger</h3> </td>
+							<td></td>
+							<td></td>
+							<td align="justify"> <h3>Fried Turkey Burger</h3> </td>
+							<td></td>
+							<td></td>
+							<td align="justify"> <h3>Double Cheese Burger</h3> </td>
+						</tr>
+						<tr>
+							<td align="justify"><img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX4409427.jpg" width= "150" height= "100"> </td>
+							<td></td>
+							<td></td>
+							<td align="justify"><img src="https://www.nuggetmarket.com/media/images/cowpoke_turkey_burger.jpg" width= "150" height= "100"> </td>
+							<td></td>
+							<td></td>
+							<td align="justify"><img src="https://1.bp.blogspot.com/-i2e3XPfVwYw/V9GgRgn2Y3I/AAAAAAAAxeM/Ih2LoXrSQr0NBgFKLeupxYNzwGZXBv1VwCLcB/s1600/Hardees-Classic-Double-Cheeseburger.jpg" width= "150" height= "100"> </td>
+						</tr>
+						
+						<tr>
+							<td align="justify">
+								<ul>
+									<li>750 kCal</li>
+									<li>Contains <span class="ing">lactose </span></li>
+									<li>Contains  <span class="ing">gluten </span> </li>
+								</ul>
+							</td>
+							<td></td>
+							<td></td>
+							<td align="justify">
+								<ul>
+									<li>600 kCal</li>
+									<li>Contains lactose <span class="ing">lactose </span></li>
+								</ul>
+							</td>
+							<td></td>
+							<td></td>
+							<td align="justify">
+								<ul>
+									<li>1800 kCal</li>
+									<li>Contains lactose <span class="ing">lactose </span></li>
+									<li>Contains<span class="ing">gluten </span></li>
+								</ul>
+							</td>
+							
+						</tr> 
+					</tbody>
+				</table> -->
+				
+				<!--This div is a replacement of the above table-->
+				<!-- <div class="burger_types"> 
+					<div class="type a">
+						<h3>The Fire Burger</h3>
+						<img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX4409427.jpg" width= "150" height= "100">
+						<ul>
+							<li>750 kCal</li>
+							<li>Contains <span class="ing">lactose </span></li>
+							<li>Contains  <span class="ing">gluten </span> </li>
+						</ul>
+					</div>
+					
+					<div class="type b">
+						<h3>Fried Turkey Burger</h3>
+						<img src="https://www.nuggetmarket.com/media/images/cowpoke_turkey_burger.jpg" width= "150" height= "100">
+						<ul>
+							<li>600 kCal</li>
+							<li>Contains lactose <span class="ing">lactose </span></li>
+						</ul>
+					</div>
+					
+					<div class="type c">
+						<h3>Double Cheese Burger</h3>
+						<img src="https://1.bp.blogspot.com/-i2e3XPfVwYw/V9GgRgn2Y3I/AAAAAAAAxeM/Ih2LoXrSQr0NBgFKLeupxYNzwGZXBv1VwCLcB/s1600/Hardees-Classic-Double-Cheeseburger.jpg" width= "150" height= "100">
+						<ul>
+							<li>1800 kCal</li>
+							<li>Contains lactose <span class="ing">lactose </span></li>
+							<li>Contains<span class="ing">gluten </span></li>
+						</ul>
+					</div>
+				</div> -->
+				
+				<!-- This next div is used for javascript script-->
+				<!--
+				<div class="burger_types" id="burger_types_js">
+				</div> 
+				-->
+				
+				<!-- This next div is used for vue script-->
+				
+				
+				<div class="burger_types" id="burger_types_vue">
+					<div v-for="burger in MenuItems" >
+						<h3>{{ burger.prod_name }}</h3>
+						<img v-bind:src=  "burger.img_source"  width= "150" height= "100">
+						<ul>
+							<li>{{ burger.kCal }}</li>
+							<li>{{ burger.lactose }}</li>
+							<li>{{ burger.gluten }} </span></li>
+						</ul>
+						<input type="checkbox" v-bind:id="burger.prod_name"> add to order<br>
+					</div>
+				</div>
+				
+				
+			</section>
+			
+			<section id="orderinfo">
+				<h2>Customer Information</h2>
+					<p>This is where you provide necessary information</p>
+				
+				<h3>Delivery information:</h3>
+				<form id="order_form">
+					<p>
+						<label> Full name </label><br>
+						<input type="text" name="fullName" required="required" placeholder="First - and Last name">
+					</p>
+					
+					<p>
+						<label> E-mail </label><br>
+						<input type="email" name="Email" required="required" placeholder="E-mail address">
+					</p>
+					
+					<p>
+						<label> Street </label><br>
+						<input type="text" name="street" required="required" placeholder="Street name">
+					</p>
+					
+					<p>
+						<label> House </label><br>
+						<input type="number" name="house" required="required" placeholder="House number">
+					</p>
+				
+				
+					<p>
+						<label for="payment">Payment option</label><br>
+						<select id="payment" name="rcp">
+							<option>Credit card</option>
+							<option>Paypal</option>
+							<option>Debit card</option>
+							<option>Swish</option>
+						</select>
+					</p>
+					<p>
+					<label for="g">Gender</label><br>
+					<input type="radio" name="gender" value="male" id="g" checked="checked"> Male<br>
+					<input type="radio" name="gender" value="female" id="g"> Female<br>
+					<input type="radio" name="gender" value="none" id="g"> Prefer not to provide <br>
+					</p>
+					
+				</form>
+			</section>
+			
+			<button type="submit" id="order_button" v-on:click="clicked1; clicked2('order_form','burger_types_vue');" > <img src="http://70.40.217.77/order/images/iKU_OrderNow.png"  width= "25" height= "20">Place my order :)</button>
+			<div id="current_order">
+				{{ currentOrder }}
+			</div>
+		</main>
+		<footer>
+			<hr> <!-- this is to add horizontal line above the next text-->
+			<p>(c) 2018 Hypothetical Burgers Inc.</p>
+		</footer>
     </body>
 </html>
