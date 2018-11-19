@@ -1,0 +1,3 @@
+- All the steps mentioned in the tutorial are done until task 5-2 step number 3.
+- most of the work in all steps of this tutorial are kept as commented part if it is needed to be removed in later steps.
+- file 'checklist.md' contains the completed tasks.
