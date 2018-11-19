@@ -43,6 +43,11 @@ Data.prototype.addOrder = function (order) {
   //Store the order in an "associative array" with orderId as key
   this.orders[order.orderId] = order;
 };
+/********************************/
+Data.prototype.displayOrder = function (order) {
+  //Store the order in an "associative array" with orderId as key
+  this.orders[0] = order;
+};
 
 Data.prototype.getAllOrders = function () {
   return this.orders;
@@ -57,6 +62,13 @@ io.on('connection', function (socket) {
   // When a connected client emits an "addOrder" message
   socket.on('addOrder', function (order) {
     data.addOrder(order);
+    // send updated info to all connected clients, note the use of io instead of socket
+    io.emit('currentQueue', { orders: data.getAllOrders() });
+  });
+  
+  /********************************/
+  socket.on('displayOrder', function (order) {
+    data.displayOrder(order);
     // send updated info to all connected clients, note the use of io instead of socket
     io.emit('currentQueue', { orders: data.getAllOrders() });
   });

@@ -14,11 +14,23 @@
 		
 		<script src="https://vuejs.org/js/vue.js" defer></script> <!--needed by the vue, it is extenal library-->
 		
+		
 		<script src="js/vue_script.js" defer></script>
+		
+		
+		<!--Next are needed by the map -->
+		
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>DELI-VERY MAP</title>  -->
+		
+		<link rel="stylesheet" href="css/deli-very.css">
+		<!-- <script src="/vue/vue.js" defer></script> -->
+		<script src="/socket.io/socket.io.js" defer></script>
+		<script src="js/deli-very.js" defer></script>
 		
     </head>
     <body>
-		<main>
+		<main id="main">
 			<section id="header">
 				<h1 id="head_line">Welcome to Burger Heaven</h1>
 				<img id="head_img" src="https://assets.grilld.com.au/images/_crop480/KIRRAWEE_WEBSITE_HERO_IMAGE_480x480px.jpg?mtime=20181031114825">
@@ -151,6 +163,7 @@
 						<input type="email" name="Email" required="required" placeholder="E-mail address">
 					</p>
 					
+					<!-- Removed to include them by the map (Task 5-2_1)
 					<p>
 						<label> Street </label><br>
 						<input type="text" name="street" required="required" placeholder="Street name">
@@ -160,6 +173,8 @@
 						<label> House </label><br>
 						<input type="number" name="house" required="required" placeholder="House number">
 					</p>
+					
+					-->
 				
 				
 					<p>
@@ -171,6 +186,21 @@
 							<option>Swish</option>
 						</select>
 					</p>
+					
+					<!--Next needed by the map-->
+					<!-- <h1> Click in the map! </h1> -->
+					<p>please indicate point of delivery:</p>
+					<a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+					<div class="view-box">
+						<div id="dots" v-on:click="displayOrder">
+							<div v-for="(order, key) in orders"
+								 v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+								<!--{{key}} -->
+								T
+							</div>
+						</div>
+					</div>
+					
 					<p>
 					<label for="g">Gender</label><br>
 					<input type="radio" name="gender" value="male" id="g" checked="checked"> Male<br>
@@ -180,8 +210,12 @@
 					
 				</form>
 			</section>
-			
+			<!-- older button before the massage passing (Task 5-2_second 2)
 			<button type="submit" id="order_button" v-on:click="clicked1; clicked2('order_form','burger_types_vue');" > <img src="http://70.40.217.77/order/images/iKU_OrderNow.png"  width= "25" height= "20">Place my order :)</button>
+			-->
+			
+			<button type="submit" id="order_button" v-on:click="addOrder('order_form','burger_types_vue')" > <img src="http://70.40.217.77/order/images/iKU_OrderNow.png"  width= "25" height= "20">Place my order :)</button>
+			
 			<div id="current_order">
 				{{ currentOrder }}
 			</div>

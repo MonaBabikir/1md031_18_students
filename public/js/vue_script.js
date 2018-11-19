@@ -18,7 +18,7 @@ var vm1 = new Vue({
 vm1.MenuItems = MenuItem
 
 var vm2 = new Vue({
-  el: '#order_button',
+  el: '#order_button2',
   methods: {
         clicked1: function() {
             console.log("Button clicked!");
@@ -38,8 +38,8 @@ var vm2 = new Vue({
 			var f = document.getElementById(form_id);
 			delivery_info.push(f.elements["fullName"].value);
 			delivery_info.push(f.elements["Email"].value);
-			delivery_info.push(f.elements["street"].value);
-			delivery_info.push(f.elements["house"].value);
+			//delivery_info.push(f.elements["street"].value);
+			//delivery_info.push(f.elements["house"].value);
 			delivery_info.push(f.elements["rcp"].value);
 			delivery_info.push(f.elements["gender"].value);
 			console.log(delivery_info);
